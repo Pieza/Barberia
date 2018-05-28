@@ -96,7 +96,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       :host(:not([page=detail])) .back-btn {
         display: none;
       }
-
+      :host(:not([page=cart])) .back-btn2 {
+        display: none;
+      }
+      :host(:not([page=checkout])) .back-btn3 {
+        display: none;
+      }
       [hidden] {
         display: none !important;
       }
@@ -218,6 +223,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         :host([page=detail]) .menu-btn {
           display: none;
         }
+        :host([page=cart]) .menu-btn {
+          display: none;
+        }
+        :host([page=checkout]) .menu-btn {
+          display: none;
+        }
       }
 
     </style>
@@ -262,8 +273,20 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           <a class="back-btn" href="/list/[[categoryName]]" tabindex="-1">
             <paper-icon-button icon="arrow-back" aria-label="Go back"></paper-icon-button>
           </a>
+          <a class="back-btn2" href="/home" tabindex="-1">
+            <paper-icon-button icon="arrow-back" aria-label="Go back"></paper-icon-button>
+          </a>
+          <a class="back-btn3" href="/cart" tabindex="-1">
+            <paper-icon-button icon="arrow-back" aria-label="Go back"></paper-icon-button>
+          </a>
         </div>
         <div class="logo" main-title><a href="/" aria-label="SHOP Home">Tienda</a></div>
+        <div class="cart-btn-container">
+          <a href="/contact" tabindex="-1">
+            <paper-icon-button icon="shopping-cart" aria-label$="Shopping cart: [[_computePluralizedQuantity(numItems)]]"></paper-icon-button>
+          </a>
+          <div class="cart-badge" aria-hidden="true" hidden$="[[!numItems]]">[[numItems]]</div>
+        </div>
         <div class="cart-btn-container">
           <a href="/cart" tabindex="-1">
             <paper-icon-button icon="shopping-cart" aria-label$="Shopping cart: [[_computePluralizedQuantity(numItems)]]"></paper-icon-button>
@@ -319,6 +342,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       <shop-cart name="cart" cart="[[cart]]" total="[[total]]"></shop-cart>
       <!-- checkout view -->
       <shop-checkout name="checkout" cart="[[cart]]" total="[[total]]" route="{{subroute}}"></shop-checkout>
+      <!-- contact view -->
+      <shop-contact name="contact" cart="[[cart]]" total="[[total]]" route="{{subroute}}"></shop-contact>
 
       <shop-404-warning name="404"></shop-404-warning>
     </iron-pages>

@@ -18,7 +18,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="shop-select.html">
 <link rel="import" href="shop-checkbox.html">
 
-<dom-module id="shop-checkout">
+<dom-module id="shop-contact">
 
   <template>
     <style include="shop-common-styles shop-button shop-form-styles shop-input shop-select shop-checkbox">
@@ -127,7 +127,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
               </div>
 
               <header class="subsection" visible$="[[_hasItems]]">
-                <h1>Ordenar</h1>
+                <h1>Mae aja</h1>
                 <span>Completa el formulario para completar tu orden.</span>
               </header>
 
@@ -347,9 +347,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
   <script>
 
-    class ShopCheckout extends Polymer.Element {
+    class ShopContact extends Polymer.Element {
 
-      static get is() { return 'shop-checkout'; }
+      static get is() { return 'shop-contact'; }
 
       static get properties() { return {
 
@@ -600,12 +600,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         this._reset();
         // Notify the page's title
         this.dispatchEvent(new CustomEvent('change-section', {
-          bubbles: true, composed: true, detail: { title: 'Checkout' }}));
+          bubbles: true, composed: true, detail: { title: 'Contact' }}));
       }
 
     }
 
-    customElements.define(ShopCheckout.is, ShopCheckout);
+    customElements.define(ShopContact.is, ShopContact);
 
   </script>
 
